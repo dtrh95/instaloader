@@ -62,8 +62,8 @@ def filterstr_to_filterfunc(filter_str: str, item_type: type):
 def _main(instaloader: Instaloader, targetlist: List[str],
           username: Optional[str] = None, password: Optional[str] = None,
           sessionfile: Optional[str] = None,
-          download_profile_pic: bool = True, download_posts=True,
-          download_stories: bool = False,
+          download_profile_pic: bool = False, download_posts=False,
+          download_stories: bool = True,
           download_highlights: bool = False,
           download_tagged: bool = False,
           download_igtv: bool = False,
@@ -410,9 +410,9 @@ def main():
             raise SystemExit('--no-pictures and --fast-update cannot be used together.')
 
         # Determine what to download
-        download_profile_pic = not args.no_profile_pic or args.profile_pic_only
-        download_posts = not (args.no_posts or args.stories_only or args.profile_pic_only)
-        download_stories = args.stories or args.stories_only
+        download_profile_pic = False
+        download_posts = False
+        download_stories = True
 
         loader = Instaloader(sleep=not args.no_sleep, quiet=args.quiet, user_agent=args.user_agent,
                              dirname_pattern=args.dirname_pattern, filename_pattern=args.filename_pattern,
@@ -440,7 +440,7 @@ def main():
               download_tagged=args.tagged,
               download_igtv=args.igtv,
               fast_update=args.fast_update,
-              max_count=int(args.count) if args.count is not None else None,
+              max_count=30,
               post_filter_str=args.post_filter,
               storyitem_filter_str=args.storyitem_filter)
         loader.close()
