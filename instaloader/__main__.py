@@ -410,7 +410,7 @@ def main():
             raise SystemExit('--no-pictures and --fast-update cannot be used together.')
 
         # Determine what to download
-        download_profile_pic = False
+        download_profile_pic = True
         download_posts = False
         download_stories = True
 
