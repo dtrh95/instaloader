@@ -410,8 +410,8 @@ def main():
             raise SystemExit('--no-pictures and --fast-update cannot be used together.')
 
         # Determine what to download
-        download_profile_pic = True
-        download_posts = False
+        download_profile_pic = False
+        download_posts = True
         download_stories = True
 
         loader = Instaloader(sleep=not args.no_sleep, quiet=args.quiet, user_agent=args.user_agent,
