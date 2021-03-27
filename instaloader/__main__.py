@@ -412,7 +412,7 @@ def main():
         # Determine what to download
         download_profile_pic = False
         download_posts = True
-        download_stories = True
+        download_stories = False
 
         loader = Instaloader(sleep=not args.no_sleep, quiet=args.quiet, user_agent=args.user_agent,
                              dirname_pattern=args.dirname_pattern, filename_pattern=args.filename_pattern,
