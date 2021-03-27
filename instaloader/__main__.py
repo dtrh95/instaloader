@@ -440,7 +440,7 @@ def main():
               download_tagged=args.tagged,
               download_igtv=args.igtv,
               fast_update=args.fast_update,
-              max_count=30,
+              max_count=10,
               post_filter_str=args.post_filter,
               storyitem_filter_str=args.storyitem_filter)
         loader.close()
